@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Product Detail</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Order Product Detail</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Order Product ID: <span th:text="${orderProduct.id}"></span></h5>
+            <p class="card-text">Order ID: <span th:text="${orderProduct.order.id}"></span></p>
+            <p class="card-text">Product Name: <span th:text="${orderProduct.product.name}"></span></p>
+            <p class="card-text">Quantity: <span th:text="${orderProduct.quantity}"></span></p>
+            <a th:href="@{/order-products/edit/{id}(id=${orderProduct.id})}" class="btn btn-warning">Edit</a>
+            <a th:href="@{/order-products}" class="btn btn-secondary">Back to Order Products</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

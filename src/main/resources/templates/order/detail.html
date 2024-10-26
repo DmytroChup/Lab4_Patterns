@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Order Details</h1>
+    <p>ID: <span th:text="${order.id}"></span></p>
+    <p>Order Date: <span th:text="${order.orderDate}"></span></p>
+    <p>Customer Name: <span th:text="${order.customer.lastName} + ' ' + ${order.customer.firstName}"></span></p>
+    <a th:href="@{/orders}" class="btn btn-secondary">Back to Orders</a>
+</div>
+</body>
+</html>

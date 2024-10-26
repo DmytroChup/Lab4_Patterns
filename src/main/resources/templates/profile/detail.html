@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Profile Details</h1>
+    <p>ID: <span th:text="${profile.id}"></span></p>
+    <p>Phone Number: <span th:text="${profile.phoneNumber}"></span></p>
+    <p>Address: <span th:text="${profile.address}"></span></p>
+    <p>Date of Birth: <span th:text="${profile.dateOfBirth}"></span></p>
+    <p>Customer Name: <span th:text="${profile.customer.lastName} + ' ' + ${profile.customer.firstName}"></span></p>
+    <a th:href="@{/profiles}" class="btn btn-secondary">Back to Profiles</a>
+</div>
+</body>
+</html>

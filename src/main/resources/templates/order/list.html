@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Order List</h1>
+    <a th:href="@{/orders/create}" class="btn btn-success mb-3">Create New Order</a>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Order Date</th>
+            <th>Customer</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order : ${orders}">
+            <td th:text="${order.id}"></td>
+            <td th:text="${order.orderDate}"></td>
+            <td th:text="${order.customer.lastName} + ' ' + ${order.customer.firstName}"></td>
+            <td>
+                <a th:href="@{/orders/{id}(id=${order.id})}" class="btn btn-info">View</a>
+                <a th:href="@{/orders/edit/{id}(id=${order.id})}" class="btn btn-warning">Edit</a>
+                <form th:action="@{/orders/{id}(id=${order.id})}" th:method="delete" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/}" class="btn btn-success mb-3">Back to Main Menu</a>
+</div>
+</body>
+</html>

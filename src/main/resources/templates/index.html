@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .btn-custom {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5 text-center">
+    <h1>Welcome to the Management System</h1>
+    <div class="mt-4">
+        <a th:href="@{/products}" class="btn btn-custom btn-lg mb-3">Manage Products</a><br>
+        <a th:href="@{/customers}" class="btn btn-custom btn-lg mb-3">Manage Customers</a><br>
+        <a th:href="@{/orders}" class="btn btn-custom btn-lg mb-3">Manage Orders</a><br>
+        <a th:href="@{/order-products}" class="btn btn-custom btn-lg mb-3">Manage Order Products</a><br>
+        <a th:href="@{/categories}" class="btn btn-custom btn-lg mb-3">Manage Categories</a><br>
+        <a th:href="@{/profiles}" class="btn btn-custom btn-lg mb-3">Manage Profiles</a><br>
+    </div>
+</div>
+</body>
+</html>

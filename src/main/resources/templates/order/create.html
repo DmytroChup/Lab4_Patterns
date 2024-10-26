@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Order</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Create Order</h1>
+    <form action="#" th:action="@{/orders}" th:object="${order}" method="post">
+        <div class="form-group">
+            <label>Customer:</label>
+            <select class="form-control" th:field="*{customer.id}" required>
+                <option th:each="customer : ${customers}"
+                        th:value="${customer.id}"
+                        th:text="${customer.lastName} + ' ' + ${customer.firstName} + ' / ' + ${customer.email}">
+                </option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Create</button>
+        <a th:href="@{/orders}" class="btn btn-secondary">Back to Orders</a>
+    </form>
+</div>
+</body>
+</html>

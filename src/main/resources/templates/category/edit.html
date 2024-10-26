@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Category</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Edit Category</h1>
+    <form th:action="@{/categories/{id}(id=${category.id})}" th:method="put" th:object="${category}">
+        <div class="form-group">
+            <label>Name:</label>
+            <input type="text" class="form-control" th:field="*{name}" required />
+        </div>
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a th:href="@{/categories}" class="btn btn-secondary">Back to Categories</a>
+    </form>
+</div>
+</body>
+</html>

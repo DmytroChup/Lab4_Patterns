@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .btn-custom {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="mb-4">Customer List</h1>
+    <a th:href="@{/customers/create}" class="btn btn-custom mb-3">Create New Customer</a>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customer : ${customers}">
+            <td th:text="${customer.id}"></td>
+            <td th:text="${customer.firstName} + ' ' + ${customer.lastName}"></td>
+            <td th:text="${customer.email}"></td>
+            <td>
+                <a th:href="@{/customers/{id}(id=${customer.id})}" class="btn btn-info">View</a>
+                <a th:href="@{/customers/edit/{id}(id=${customer.id})}" class="btn btn-warning">Edit</a>
+                <a th:href="@{/customers/delete/{id}(id=${customer.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/}" class="btn btn-custom mb-3">Back to Main Menu</a>
+</div>
+</body>
+</html>
